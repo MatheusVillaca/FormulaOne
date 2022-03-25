@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "kisspng-mercedes-amg-petronas-f1-team-1950-formula-one-sea-formula-one-logo-5b08b45582bd57.8668515915272971095355.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "kisspng-mercedes-amg-petronas-f1-team-1950-formula-one-sea-formula-one-logo-5b08b45582bd57.8668515915272971095355-1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "kisspng-mercedes-amg-petronas-f1-team-1950-formula-one-sea-formula-one-logo-5b08b45582bd57.8668515915272971095355-2.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
