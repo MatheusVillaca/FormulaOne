@@ -11,13 +11,23 @@ final class DashboardSeasonViewController: UIViewController, UICollectionViewDel
     
     var api: F1API = .init()
     
-    var season: [Race] = [.init(circuitName: "Jehdda", date: "27-03-2022", circuitImage: "jehdda")]
+    var season: [Race] = []
     
     lazy var dashboardView: DashboardSeasonView = .init(delegate: self, dataSource: self)
     
     override func loadView() {
         view = dashboardView
         view.backgroundColor = .white
+    }
+    
+    init(api: F1API = F1API()) {
+        self.api = api
+        super.init(nibName: nil, bundle: nil)
+        self.title = "Season"
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -35,9 +45,9 @@ final class DashboardSeasonViewController: UIViewController, UICollectionViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        api.getRaces { RaceResponse in
+        api.getRaces { RaceInfo in
             DispatchQueue.main.async {
-                self.season = RaceResponse?.Races ?? []
+                self.season = RaceInfo?.Races ?? []
                 self.dashboardView.dashboardSeasonCollectionView.reloadData()
             }
         }

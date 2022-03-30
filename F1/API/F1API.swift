@@ -9,9 +9,9 @@ import Foundation
 
 final class F1API {
     
-    func getRaces(completion: @escaping ((_ races: RaceResponse?) -> Void)) {
+    func getRaces(completion: @escaping ((_ races: RaceInfo?) -> Void)) {
 
-        guard let urlComponents: URLComponents = URLComponents(string: "http://ergast.com/api/f1/2022.json?callback=myParser") else {
+        guard let urlComponents: URLComponents = URLComponents(string: "http://ergast.com/api/f1/2022.json") else {
             completion (nil)
             return
         }

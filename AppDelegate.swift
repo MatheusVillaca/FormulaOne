@@ -15,9 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let login: LoginViewController = .init(nibName: nil, bundle: nil)
+        let tab: TabBarController = .init(nibName: nil, bundle: nil)
+        let team: TeamsViewController = .init(nibName: nil, bundle: nil)
         
         let window: UIWindow = .init(frame: UIScreen.main.bounds)
-        window.rootViewController = login
+        window.rootViewController = tab
         self.window = window
         return true
     }

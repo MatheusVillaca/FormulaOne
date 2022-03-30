@@ -11,10 +11,11 @@ final class DashboardSeasonView: UIView, ViewCode {
     
     let dashboardSeasonCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2 - 5, height: UIScreen.main.bounds.width / 2 * 1.6)
+        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2 - 5, height: UIScreen.main.bounds.width / 2)
         flowLayout.scrollDirection = .vertical
         let dashboardSeasonCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         dashboardSeasonCollectionView.register(DashboardSeasonCell.self, forCellWithReuseIdentifier: "dashboardCell")
+        dashboardSeasonCollectionView.register(TeamsCell.self, forCellWithReuseIdentifier: "teamsCell")
         dashboardSeasonCollectionView.contentInset = .init(top: 8, left: 0, bottom: 8, right: 0)
         dashboardSeasonCollectionView.translatesAutoresizingMaskIntoConstraints = false
         return dashboardSeasonCollectionView

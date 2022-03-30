@@ -7,6 +7,15 @@
 
 import Foundation
 
-final class RaceResponse: Codable {
+class RaceResponse: Codable {
+    let MRDate: RaceTable
+}
+
+class RaceTable: Codable {
+    let RaceTable: RaceInfo
+}
+
+final class RaceInfo: Codable {
     let Races: [Race]
+    
 }
