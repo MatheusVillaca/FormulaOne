@@ -11,4 +11,5 @@ final class Classification {
     var name: String
     var position: String
     var points: String
+    
 }
