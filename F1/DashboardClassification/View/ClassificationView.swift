@@ -10,14 +10,34 @@ import UIKit
 
 final class ClassificationView: UIView, ViewCode {
     
-    
+    let classificationTableView: UITableView = {
+        let classificationTableView: UITableView = UITableView(frame: .zero)
+        classificationTableView.translatesAutoresizingMaskIntoConstraints = false
+        return classificationTableView
+    }()
     
     func setupViewHierarchy() {
-        <#code#>
+        addSubview(classificationTableView)
+    }
+    
+    init(dataSource: UITableViewDataSource, delegate: UITableViewDelegate) {
+        super.init(frame: .zero)
+        self.classificationTableView.dataSource = dataSource
+        self.classificationTableView.delegate = delegate
+        setupViews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func setupConstraints() {
-        <#code#>
+        
+        classificationTableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        classificationTableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        classificationTableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        classificationTableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
     }
     
     

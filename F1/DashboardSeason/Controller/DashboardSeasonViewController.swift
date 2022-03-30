@@ -11,7 +11,7 @@ final class DashboardSeasonViewController: UIViewController, UICollectionViewDel
     
     var api: F1API = .init()
     
-    var season: [Race] = []
+    var races: [Race] = []
     
     lazy var dashboardView: DashboardSeasonView = .init(delegate: self, dataSource: self)
     
@@ -31,23 +31,23 @@ final class DashboardSeasonViewController: UIViewController, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return season.count
+        return races.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell: DashboardSeasonCell = collectionView.dequeueReusableCell(withReuseIdentifier: "dashboardCell", for: indexPath) as? DashboardSeasonCell else {
             return UICollectionViewCell()
         }
-        let race: Race = season[indexPath.item]
-        cell.setupDashboardCell(title: race.circuitName, image: UIImage(named: race.circuitImageName), date: race.raceDate)
+        let race: Race = races[indexPath.item]
+        cell.setupDashboardCell(title: race.name, image: UIImage(named: ""), date: race.date)
         return cell
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        api.getRaces { RaceInfo in
+        api.getRaces { seasonResponse in
             DispatchQueue.main.async {
-                self.season = RaceInfo?.Races ?? []
+                self.races = seasonResponse?.seasonData.raceTable.races ?? []
                 self.dashboardView.dashboardSeasonCollectionView.reloadData()
             }
         }

@@ -9,7 +9,7 @@ import Foundation
 
 final class F1API {
     
-    func getRaces(completion: @escaping ((_ races: RaceInfo?) -> Void)) {
+    func getRaces(completion: @escaping ((_ season: SeasonResponse?) -> Void)) {
 
         guard let urlComponents: URLComponents = URLComponents(string: "http://ergast.com/api/f1/2022.json") else {
             completion (nil)
