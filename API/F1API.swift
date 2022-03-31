@@ -22,4 +22,20 @@ final class F1API {
         let request: URLRequest = .init(url: url)
         RequestManager.request(request, completion: completion)
     }
+    
+    func getStandings(completion: @escaping ((_ standings: ClassificationResponse?) -> Void)) {
+
+        guard let urlComponents: URLComponents = URLComponents(string: "http://ergast.com/api/f1/2022/driverStandings.json") else {
+            completion (nil)
+            return
+        }
+        guard let url: URL = urlComponents.url else {
+            completion (nil)
+            return
+        }
+        let request: URLRequest = .init(url: url)
+        RequestManager.request(request, completion: completion)
+    }
+    
+    
 }

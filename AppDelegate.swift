@@ -16,10 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let login: LoginViewController = .init(nibName: nil, bundle: nil)
         let tab: TabBarController = .init(nibName: nil, bundle: nil)
-        let team: TeamsViewController = .init(nibName: nil, bundle: nil)
+        let classification: ClassificationViewController = .init()
         
         let window: UIWindow = .init(frame: UIScreen.main.bounds)
-        window.rootViewController = tab
+        window.rootViewController = classification
         self.window = window
         return true
     }
