@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DashboardSeasonViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+final class DashboardSeasonViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var api: F1API = .init()
     
@@ -17,7 +17,21 @@ final class DashboardSeasonViewController: UIViewController, UICollectionViewDel
     
     override func loadView() {
         view = dashboardView
-        view.backgroundColor = .white
+        view.backgroundColor = .black
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return races.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell: DashboardSeasonCell = tableView.dequeueReusableCell(withIdentifier: "seasonCell", for: indexPath) as? DashboardSeasonCell else {
+            return UITableViewCell()
+        }
+        cell.accessoryType = .disclosureIndicator
+        let race: Race = races[indexPath.row]
+        cell.setupDashboardCell(title: race.name, image: race.circuit.imageURL, date: race.date, round: "ROUND \(race.round)")
+        return cell
     }
     
     init(api: F1API = F1API()) {
@@ -30,25 +44,14 @@ final class DashboardSeasonViewController: UIViewController, UICollectionViewDel
         fatalError("init(coder:) has not been implemented")
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return races.count
-    }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell: DashboardSeasonCell = collectionView.dequeueReusableCell(withReuseIdentifier: "dashboardCell", for: indexPath) as? DashboardSeasonCell else {
-            return UICollectionViewCell()
-        }
-        let race: Race = races[indexPath.item]
-        cell.setupDashboardCell(title: race.name, image: UIImage(named: ""), date: race.date)
-        return cell
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         api.getRaces { seasonResponse in
             DispatchQueue.main.async {
                 self.races = seasonResponse?.seasonData.raceTable.races ?? []
-                self.dashboardView.dashboardSeasonCollectionView.reloadData()
+                self.dashboardView.dashboardSeasonTableView.reloadData()
             }
         }
     }

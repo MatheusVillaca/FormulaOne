@@ -9,11 +9,16 @@ import UIKit
 
 final class LoginViewController: UIViewController, DelegateActions {
     
-    lazy var loginView = LoginView(delegate: self, terms: "Concordo com os termos de uso", logo: UIImage(named: "f1.png"))
+    var users: [Register] {
+        return RegisterManager.getUsers()
+    }
+   
+    lazy var loginView = LoginView(delegate: self, terms: "I agree to the terms of use", logo: UIImage(named: "f1.png"))
     
     override func viewDidLoad() {
         view = loginView
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundLogin")!) 
+        
     }
     
     func showAlert(title: String, message: String, style: UIAlertController.Style) {
@@ -26,11 +31,13 @@ final class LoginViewController: UIViewController, DelegateActions {
     func loginAction() {
         guard let verifyNameField = loginView.nameField.text?.isEmpty else {return}
         guard let verifyKeyField = loginView.keyField.text?.isEmpty else {return}
+        let verifyLogin = RegisterManager.getSavedUsers(email: loginView.nameField.text ?? "", password: loginView.keyField.text ?? "")
+        
         if loginView.switchButton.isOn && !verifyNameField && !verifyKeyField {
             let tabBarController = TabBarController()
             present(tabBarController, animated: true, completion: nil)
         } else if verifyNameField || verifyKeyField {
-            self.showAlert(title: "Oops", message: "Preencha os campos corretamente.", style: .alert)
+            self.showAlert(title: "Oops", message: "Fill in the fields correctly.", style: .alert)
         }
     }
     
@@ -40,4 +47,7 @@ final class LoginViewController: UIViewController, DelegateActions {
         loginView.loginButton.backgroundColor = loginView.switchButton.isOn ? #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1) : .lightGray
     }
     
+    func register() {
+        present(RegisterViewController(), animated: true, completion: nil)
+    }
 }

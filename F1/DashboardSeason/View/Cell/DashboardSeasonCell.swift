@@ -6,54 +6,82 @@
 //
 
 import UIKit
+import Kingfisher
 
-final class DashboardSeasonCell: UICollectionViewCell, ViewCode {
+final class DashboardSeasonCell: UITableViewCell, ViewCode {
     
-    var backgroundCell: UIImageView = {
-        var backgroundCell: UIImageView = UIImageView(frame: .zero)
-        backgroundCell.translatesAutoresizingMaskIntoConstraints = false
-        return backgroundCell
+    var circuitImage: UIImageView = {
+        var circuitImage: UIImageView = UIImageView(frame: .zero)
+        circuitImage.translatesAutoresizingMaskIntoConstraints = false
+        return circuitImage
+    }()
+    
+    var round: UILabel = {
+        var round: UILabel = UILabel(frame: .zero)
+        round.font = round.font.withSize(15)
+        round.translatesAutoresizingMaskIntoConstraints = false
+        return round
     }()
     
     var circuitName: UILabel = {
         var circuitName: UILabel = UILabel(frame: .zero)
         circuitName.translatesAutoresizingMaskIntoConstraints = false
-        circuitName.font = circuitName.font.withSize(30)
+        circuitName.font = circuitName.font.withSize(15)
+        circuitName.numberOfLines = 0
+        circuitName.textAlignment = .left
+        circuitName.textColor = .black
         return circuitName
     }()
     
     var raceDate: UILabel = {
         var raceDate: UILabel = UILabel(frame: .zero)
         raceDate.font = raceDate.font.withSize(20)
+        raceDate.textAlignment = .left
+        raceDate.textColor = .black
         raceDate.translatesAutoresizingMaskIntoConstraints = false
         return raceDate
     }()
     
-    func setupDashboardCell(title: String, image: UIImage?, date: String) {
-        self.backgroundCell.image = image
+    func setupDashboardCell(title: String, image: URL?, date: String, round: String) {
+        self.circuitImage.kf.setImage(with: image)
         self.circuitName.text = title
         self.raceDate.text = date
+        self.round.text = round
         setupViews()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let margins = UIEdgeInsets(top: 5, left: -10, bottom: 5, right: 8)
+        contentView.frame = contentView.frame.inset(by: margins)
+        contentView.layer.cornerRadius = 8
+        contentView.layer.borderWidth = 2
+        contentView.layer.borderColor = UIColor.red.cgColor
+    }
+    
     func setupViewHierarchy() {
-        addSubview(backgroundCell)
-        backgroundCell.addSubview(circuitName)
-        backgroundCell.addSubview(raceDate)
+        contentView.addSubview(circuitImage)
+        contentView.addSubview(round)
+        contentView.addSubview(circuitName)
+        contentView.addSubview(raceDate)
     }
     
     func setupConstraints() {
         
-        backgroundCell.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        backgroundCell.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        backgroundCell.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        backgroundCell.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        circuitImage.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        circuitImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        circuitImage.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        circuitImage.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        circuitImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
-        raceDate.centerYAnchor.constraint(equalTo: backgroundCell.centerYAnchor).isActive = true
-        raceDate.bottomAnchor.constraint(equalTo: circuitName.topAnchor, constant: -4).isActive = true
+        round.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4).isActive = true
+        round.leadingAnchor.constraint(equalTo: circuitImage.trailingAnchor, constant: 40).isActive = true
+        round.bottomAnchor.constraint(equalTo: raceDate.topAnchor, constant: -5).isActive = true
         
-        circuitName.leadingAnchor.constraint(equalTo: backgroundCell.leadingAnchor, constant: 4).isActive = true
-        circuitName.trailingAnchor.constraint(equalTo: backgroundCell.trailingAnchor, constant: -4).isActive = true
-        circuitName.bottomAnchor.constraint(equalTo: backgroundCell.bottomAnchor, constant: -4).isActive = true
+        raceDate.leadingAnchor.constraint(equalTo: circuitImage.trailingAnchor, constant: 40).isActive = true
+        raceDate.bottomAnchor.constraint(equalTo: circuitName.topAnchor, constant: -5).isActive = true
+
+        circuitName.leadingAnchor.constraint(equalTo: circuitImage.trailingAnchor, constant: 40).isActive = true
+        circuitName.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4).isActive = true
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class TeamsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+final class TeamsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var teams: [Team] = [.init(name: "Mercedes", logo: "Mercedes"),
                          .init(name: "Red Bull", logo: "RedBull"),
@@ -27,17 +27,17 @@ final class TeamsViewController: UIViewController, UICollectionViewDataSource, U
         view = teamsView
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return teams.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell: TeamsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "teamsCell", for: indexPath) as? TeamsCell else {
-            return UICollectionViewCell()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell: TeamsCell = tableView.dequeueReusableCell(withIdentifier: "teamsCell", for: indexPath) as? TeamsCell else {
+            return UITableViewCell()
         }
-        let team: Team = teams[indexPath.item]
+        cell.accessoryType = .disclosureIndicator
+        let team: Team = teams[indexPath.row]
         cell.setupCell(name: team.equipeName, logo: UIImage(named: team.equipeLogo))
         return cell
     }
-
 }

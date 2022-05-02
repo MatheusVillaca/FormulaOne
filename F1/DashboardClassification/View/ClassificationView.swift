@@ -62,9 +62,11 @@ final class ClassificationView: UIView, ViewCode {
 //        roundsCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8).isActive = true
         roundsCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         roundsCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        roundsCollectionView.bottomAnchor.constraint(equalTo: classificationTableView.topAnchor).isActive = true
+        roundsCollectionView.bottomAnchor.constraint(equalTo: classificationTableView.topAnchor, constant: 4).isActive = true
+        roundsCollectionView.heightAnchor.constraint(equalToConstant: 80).isActive = true
         
-        classificationTableView.topAnchor.constraint(equalTo: roundsCollectionView.bottomAnchor).isActive = true
+        
+        classificationTableView.topAnchor.constraint(equalTo: roundsCollectionView.bottomAnchor, constant: 4).isActive = true
         classificationTableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         classificationTableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         classificationTableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true

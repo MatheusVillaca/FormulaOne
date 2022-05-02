@@ -9,33 +9,32 @@ import UIKit
 
 final class DashboardSeasonView: UIView, ViewCode {
     
-    let dashboardSeasonCollectionView: UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2 - 5, height: UIScreen.main.bounds.width / 2)
-        flowLayout.scrollDirection = .vertical
-        let dashboardSeasonCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        dashboardSeasonCollectionView.register(DashboardSeasonCell.self, forCellWithReuseIdentifier: "dashboardCell")
-        dashboardSeasonCollectionView.register(TeamsCell.self, forCellWithReuseIdentifier: "teamsCell")
-        dashboardSeasonCollectionView.contentInset = .init(top: 8, left: 0, bottom: 8, right: 0)
-        dashboardSeasonCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        return dashboardSeasonCollectionView
+    let dashboardSeasonTableView: UITableView = {
+        let dashboardSeasonTableView: UITableView = UITableView(frame: .zero)
+        dashboardSeasonTableView.register(DashboardSeasonCell.self, forCellReuseIdentifier: "seasonCell")
+        dashboardSeasonTableView.register(TeamsCell.self, forCellReuseIdentifier: "teamsCell")
+        dashboardSeasonTableView.showsVerticalScrollIndicator = true
+        dashboardSeasonTableView.separatorStyle = .none
+        dashboardSeasonTableView.translatesAutoresizingMaskIntoConstraints = false
+        return dashboardSeasonTableView
     }()
     
     func setupViewHierarchy() {
-        addSubview(dashboardSeasonCollectionView)
+        addSubview(dashboardSeasonTableView)
     }
     
     func setupConstraints() {
-        dashboardSeasonCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        dashboardSeasonCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        dashboardSeasonCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        dashboardSeasonCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        dashboardSeasonTableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        dashboardSeasonTableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        dashboardSeasonTableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        dashboardSeasonTableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
-    init(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource){
+    init(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
         super.init(frame: .zero)
-        self.dashboardSeasonCollectionView.delegate = delegate
-        self.dashboardSeasonCollectionView.dataSource = dataSource
+        self.dashboardSeasonTableView.delegate = delegate
+        self.dashboardSeasonTableView.dataSource = dataSource
+        self.backgroundColor = .black
         setupViews()
     }
     

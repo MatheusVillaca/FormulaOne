@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		014A81104D4F2146D9431AB1 /* Pods_FormulaOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3F0561ADF7D005840F7D354 /* Pods_FormulaOne.framework */; };
 		E20F9A5E279236270013C5B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20F9A5D279236270013C5B7 /* AppDelegate.swift */; };
 		E20F9A65279236270013C5B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E20F9A63279236270013C5B7 /* Main.storyboard */; };
 		E20F9A67279236370013C5B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E20F9A66279236370013C5B7 /* Assets.xcassets */; };
@@ -20,7 +21,11 @@
 		E248414627F4DD50003355A9 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = E248414527F4DD50003355A9 /* Team.swift */; };
 		E248414927F4DEEC003355A9 /* TeamsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E248414827F4DEEC003355A9 /* TeamsCell.swift */; };
 		E248414F27F4EC21003355A9 /* ClassificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E248414E27F4EC21003355A9 /* ClassificationView.swift */; };
-		E25103FD27F511B1009D3908 /* DriversNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25103FC27F511B1009D3908 /* DriversNumbers.swift */; };
+		E25103FD27F511B1009D3908 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25103FC27F511B1009D3908 /* Driver.swift */; };
+		E2511937281AEA0700F85B49 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2511936281AEA0700F85B49 /* RegisterView.swift */; };
+		E2511939281B13FE00F85B49 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2511938281B13FE00F85B49 /* RegisterViewController.swift */; };
+		E251193C281B16CA00F85B49 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251193B281B16CA00F85B49 /* Register.swift */; };
+		E251193E281B1D1E00F85B49 /* RegisterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251193D281B1D1E00F85B49 /* RegisterManager.swift */; };
 		E28BE84127EE23DD00F72F28 /* DashboardSeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BE84027EE23DD00F72F28 /* DashboardSeasonView.swift */; };
 		E28BE84427EE254500F72F28 /* DashboardSeasonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BE84327EE254500F72F28 /* DashboardSeasonCell.swift */; };
 		E28BE84627EE494200F72F28 /* DashboardSeasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BE84527EE494200F72F28 /* DashboardSeasonViewController.swift */; };
@@ -53,6 +58,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F2F73ED4E4EB7CB12CE1207 /* Pods-FormulaOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormulaOne.release.xcconfig"; path = "Target Support Files/Pods-FormulaOne/Pods-FormulaOne.release.xcconfig"; sourceTree = "<group>"; };
+		B3F0561ADF7D005840F7D354 /* Pods_FormulaOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FormulaOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D86F9737B0A522ADAB617AA5 /* Pods-FormulaOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FormulaOne.debug.xcconfig"; path = "Target Support Files/Pods-FormulaOne/Pods-FormulaOne.debug.xcconfig"; sourceTree = "<group>"; };
 		E20F9A5A279236260013C5B7 /* FormulaOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormulaOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E20F9A5D279236270013C5B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E20F9A64279236270013C5B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,7 +80,11 @@
 		E248414527F4DD50003355A9 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		E248414827F4DEEC003355A9 /* TeamsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsCell.swift; sourceTree = "<group>"; };
 		E248414E27F4EC21003355A9 /* ClassificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationView.swift; sourceTree = "<group>"; };
-		E25103FC27F511B1009D3908 /* DriversNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversNumbers.swift; sourceTree = "<group>"; };
+		E25103FC27F511B1009D3908 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
+		E2511936281AEA0700F85B49 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		E2511938281B13FE00F85B49 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		E251193B281B16CA00F85B49 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		E251193D281B1D1E00F85B49 /* RegisterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterManager.swift; sourceTree = "<group>"; };
 		E28BE84027EE23DD00F72F28 /* DashboardSeasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSeasonView.swift; sourceTree = "<group>"; };
 		E28BE84327EE254500F72F28 /* DashboardSeasonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSeasonCell.swift; sourceTree = "<group>"; };
 		E28BE84527EE494200F72F28 /* DashboardSeasonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSeasonViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				014A81104D4F2146D9431AB1 /* Pods_FormulaOne.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +125,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1979AF42C887E665794F5841 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D86F9737B0A522ADAB617AA5 /* Pods-FormulaOne.debug.xcconfig */,
+				6F2F73ED4E4EB7CB12CE1207 /* Pods-FormulaOne.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8216B9FFEB1D8569E182F47A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B3F0561ADF7D005840F7D354 /* Pods_FormulaOne.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E20F9A51279236250013C5B7 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +153,8 @@
 				E20F9A73279236380013C5B7 /* ProjetoTests */,
 				E20F9A7E279236390013C5B7 /* ProjetoUITests */,
 				E20F9A5B279236260013C5B7 /* Products */,
+				1979AF42C887E665794F5841 /* Pods */,
+				8216B9FFEB1D8569E182F47A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,10 +171,10 @@
 		E20F9A5C279236260013C5B7 /* F1 */ = {
 			isa = PBXGroup;
 			children = (
+				E2E8433D27E251D9002C20B1 /* Login */,
 				E248414A27F4EAD8003355A9 /* DashboardClassification */,
 				E248413D27F4DC35003355A9 /* DashboardTeams */,
 				E28BE84C27EE5A7A00F72F28 /* Navigation */,
-				E2E8433D27E251D9002C20B1 /* Login */,
 				E28BE84727EE504E00F72F28 /* TabBarController */,
 				E28BE83C27EE233000F72F28 /* DashboardSeason */,
 				E20F9A6B279236370013C5B7 /* Info.plist */,
@@ -226,7 +258,7 @@
 		E248414B27F4EB13003355A9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E25103FC27F511B1009D3908 /* DriversNumbers.swift */,
+				E25103FC27F511B1009D3908 /* Driver.swift */,
 				E227AE7B27F63C0E0004BEF2 /* ClassificationResponse.swift */,
 			);
 			path = Model;
@@ -247,6 +279,40 @@
 				E227AE7727F631D40004BEF2 /* ClassificationViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E2511933281AE9C900F85B49 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				E251193A281B16BD00F85B49 /* Model */,
+				E2511935281AE9F100F85B49 /* Controller */,
+				E2511934281AE9E900F85B49 /* View */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		E2511934281AE9E900F85B49 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E2511936281AEA0700F85B49 /* RegisterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E2511935281AE9F100F85B49 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E2511938281B13FE00F85B49 /* RegisterViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E251193A281B16BD00F85B49 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E251193B281B16CA00F85B49 /* Register.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E28BE83C27EE233000F72F28 /* DashboardSeason */ = {
@@ -313,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				E28BE85027EE5F8800F72F28 /* RequestManager.swift */,
+				E251193D281B1D1E00F85B49 /* RegisterManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -336,8 +403,9 @@
 		E2E8433D27E251D9002C20B1 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				E2E8433F27E2525C002C20B1 /* Controller */,
 				E2E8433E27E25253002C20B1 /* View */,
+				E2E8433F27E2525C002C20B1 /* Controller */,
+				E2511933281AE9C900F85B49 /* Register */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -365,9 +433,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E20F9A84279236390013C5B7 /* Build configuration list for PBXNativeTarget "FormulaOne" */;
 			buildPhases = (
+				6970F338FE2B497367EF454C /* [CP] Check Pods Manifest.lock */,
 				E20F9A56279236250013C5B7 /* Sources */,
 				E20F9A57279236250013C5B7 /* Frameworks */,
 				E20F9A58279236250013C5B7 /* Resources */,
+				F639276E2CFD016D9C495559 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -482,6 +552,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6970F338FE2B497367EF454C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FormulaOne-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F639276E2CFD016D9C495559 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FormulaOne/Pods-FormulaOne-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FormulaOne/Pods-FormulaOne-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FormulaOne/Pods-FormulaOne-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E20F9A56279236250013C5B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -490,18 +602,22 @@
 				E28BE84627EE494200F72F28 /* DashboardSeasonViewController.swift in Sources */,
 				E28BE84427EE254500F72F28 /* DashboardSeasonCell.swift in Sources */,
 				E28BE84127EE23DD00F72F28 /* DashboardSeasonView.swift in Sources */,
+				E2511939281B13FE00F85B49 /* RegisterViewController.swift in Sources */,
+				E251193C281B16CA00F85B49 /* Register.swift in Sources */,
 				E248414627F4DD50003355A9 /* Team.swift in Sources */,
 				E248414927F4DEEC003355A9 /* TeamsCell.swift in Sources */,
 				E28BE84B27EE558E00F72F28 /* Race.swift in Sources */,
 				E227AE7C27F63C0E0004BEF2 /* ClassificationResponse.swift in Sources */,
 				E28BE84E27EE5A8F00F72F28 /* NavigationController.swift in Sources */,
+				E251193E281B1D1E00F85B49 /* RegisterManager.swift in Sources */,
 				E248414427F4DCCC003355A9 /* TeamsViewController.swift in Sources */,
+				E2511937281AEA0700F85B49 /* RegisterView.swift in Sources */,
 				E227AE7827F631D40004BEF2 /* ClassificationViewController.swift in Sources */,
 				E28BE84927EE505D00F72F28 /* TabBarController.swift in Sources */,
 				E20F9A5E279236270013C5B7 /* AppDelegate.swift in Sources */,
 				E248414F27F4EC21003355A9 /* ClassificationView.swift in Sources */,
 				E227AE7A27F632FD0004BEF2 /* ClassificationCell.swift in Sources */,
-				E25103FD27F511B1009D3908 /* DriversNumbers.swift in Sources */,
+				E25103FD27F511B1009D3908 /* Driver.swift in Sources */,
 				E28BE85127EE5F8800F72F28 /* RequestManager.swift in Sources */,
 				E28BE85627EE645500F72F28 /* RaceResponse.swift in Sources */,
 				E2BAD8E527B4029600FA90EF /* ViewCode.swift in Sources */,
@@ -673,6 +789,7 @@
 		};
 		E20F9A85279236390013C5B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D86F9737B0A522ADAB617AA5 /* Pods-FormulaOne.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -692,6 +809,7 @@
 		};
 		E20F9A86279236390013C5B7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F2F73ED4E4EB7CB12CE1207 /* Pods-FormulaOne.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

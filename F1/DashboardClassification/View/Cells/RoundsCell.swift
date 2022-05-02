@@ -31,7 +31,6 @@ final class RoundCell: UICollectionViewCell, ViewCode {
     }
     
     func configureViews() {
-        backgroundColor = .green
         self.containerRoundView.clipsToBounds = true
         self.containerRoundView.layer.cornerRadius = 5
     }
@@ -45,8 +44,8 @@ final class RoundCell: UICollectionViewCell, ViewCode {
         
         containerRoundView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         containerRoundView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        containerRoundView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        containerRoundView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        containerRoundView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        containerRoundView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         roundLabel.centerXAnchor.constraint(equalTo: containerRoundView.centerXAnchor).isActive = true
         roundLabel.centerYAnchor.constraint(equalTo: containerRoundView.centerYAnchor).isActive = true
