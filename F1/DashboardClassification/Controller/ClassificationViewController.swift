@@ -12,9 +12,9 @@ final class ClassificationViewController: UIViewController, UICollectionViewDele
     
     var drivers: [Driver] = []
     
-    var rounds: [StandingsList] = []
-    
     var driverStandings: [DriverStanding] = []
+    
+    var round: [String] = []
     
     var api: F1API = .init()
    
@@ -26,29 +26,29 @@ final class ClassificationViewController: UIViewController, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 22
+        return round.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell: RoundCell = collectionView.dequeueReusableCell(withReuseIdentifier: "roundCell", for: indexPath) as? RoundCell else {
             return UICollectionViewCell()
         }
-        cell.setupCell(round: "1")
+        let round: String = round[indexPath.item]
+        cell.setupCell(round: round)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return drivers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: ClassificationCell = tableView.dequeueReusableCell(withIdentifier: "classificationCell", for: indexPath) as? ClassificationCell else {
             return UITableViewCell()
         }
-//        let driver: Driver = drivers[indexPath.item]
-//        let driverStanding: DriverStanding = driverStandings[indexPath.item]
-//        cell.setupCell(position: driverStanding.position, name: "\(driver.givenName) + \(driver.familyName)", points: driverStanding.points)
-        cell.setupCell(position: "1", name: "jao", points: "10")
+        let driver: Driver = drivers[indexPath.item]
+        let position: DriverStanding = driverStandings[indexPath.item]
+        cell.setupCell(position: position.position, name: "\(driver.givenName) \(driver.familyName)", points: position.points)
         return cell
     }
     
@@ -56,7 +56,9 @@ final class ClassificationViewController: UIViewController, UICollectionViewDele
         super.viewDidLoad()
         api.getStandings { classificationResponse in
             DispatchQueue.main.async {
-                self.drivers = classificationResponse?.mrData.standingsTable.standingsLists.driverStandings.driver ?? []
+                self.drivers = classificationResponse?.mrData.standingsTable.standingsLists.first?.driverStandings.map({$0.driver}) ?? []
+                self.driverStandings = classificationResponse?.mrData.standingsTable.standingsLists.first?.driverStandings ?? []
+                self.round = classificationResponse?.mrData.standingsTable.standingsLists.map({$0.round}) ?? []
                 self.classificationView.classificationTableView.reloadData()
             }
         }

@@ -34,7 +34,7 @@ final class ClassificationCell: UITableViewCell, ViewCode {
     let positionLabel: UILabel = {
         let positionLabel: UILabel = UILabel(frame: .zero)
         positionLabel.translatesAutoresizingMaskIntoConstraints = false
-        positionLabel.font = positionLabel.font.withSize(10)
+        positionLabel.font = positionLabel.font.withSize(15)
         positionLabel.textColor = .white
         return positionLabel
     }()
@@ -42,7 +42,7 @@ final class ClassificationCell: UITableViewCell, ViewCode {
     let nameLabel: UILabel = {
         let nameLabel: UILabel = UILabel(frame: .zero)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.font = nameLabel.font.withSize(10)
+        nameLabel.font = nameLabel.font.withSize(15)
         nameLabel.textColor = .black
         return nameLabel
     }()
@@ -50,7 +50,7 @@ final class ClassificationCell: UITableViewCell, ViewCode {
     let pointsLabel: UILabel = {
         let pointsLabel: UILabel = UILabel(frame: .zero)
         pointsLabel.translatesAutoresizingMaskIntoConstraints = false
-        pointsLabel.font = pointsLabel.font.withSize(10)
+        pointsLabel.font = pointsLabel.font.withSize(15)
         pointsLabel.textColor = .white
         return pointsLabel
     }()
@@ -77,16 +77,19 @@ final class ClassificationCell: UITableViewCell, ViewCode {
         containerPosition.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         containerPosition.trailingAnchor.constraint(equalTo: containerName.leadingAnchor).isActive = true
         containerPosition.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        containerPosition.widthAnchor.constraint(equalToConstant: 60).isActive = true
         
         containerName.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         containerName.leadingAnchor.constraint(equalTo: containerPosition.trailingAnchor).isActive = true
         containerName.trailingAnchor.constraint(equalTo: containerPoints.leadingAnchor).isActive = true
         containerName.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        containerName.widthAnchor.constraint(equalToConstant: 80).isActive = true
         
         containerPoints.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         containerPoints.leadingAnchor.constraint(equalTo: containerName.trailingAnchor).isActive = true
-        containerPoints.trailingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        containerPoints.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         containerPoints.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        containerPoints.widthAnchor.constraint(equalToConstant: 60).isActive = true
         
         positionLabel.centerXAnchor.constraint(equalTo: containerPosition.centerXAnchor).isActive = true
         positionLabel.centerYAnchor.constraint(equalTo: containerPosition.centerYAnchor).isActive = true

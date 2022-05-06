@@ -43,23 +43,22 @@ class MRData: Codable {
 }
 
 class StandingsTable: Codable {
-    let season, round: String
-    let standingsLists: StandingsList
+    let season: String
+    let standingsLists: [StandingsList]
 
     enum CodingKeys: String, CodingKey {
-        case season, round
+        case season
         case standingsLists = "StandingsLists"
     }
 
-    init(season: String, round: String, standingsLists: StandingsList) {
+    init(season: String, standingsLists: [StandingsList]) {
         self.season = season
-        self.round = round
         self.standingsLists = standingsLists
     }
 }
 class StandingsList: Codable {
     let season, round: String
-    let driverStandings: DriverStanding
+    let driverStandings: [DriverStanding]
 
     enum CodingKeys: String, CodingKey {
         case season, round
@@ -69,7 +68,7 @@ class StandingsList: Codable {
 
 class DriverStanding: Codable {
     let position, positionText, points, wins: String
-    let driver: [Driver]
+    let driver: Driver
     let constructors: [Constructor]
 
     enum CodingKeys: String, CodingKey {
@@ -78,7 +77,7 @@ class DriverStanding: Codable {
         case constructors = "Constructors"
     }
 
-    init(position: String, positionText: String, points: String, wins: String, driver: [Driver], constructors: [Constructor]) {
+    init(position: String, positionText: String, points: String, wins: String, driver: Driver, constructors: [Constructor]) {
         self.position = position
         self.positionText = positionText
         self.points = points

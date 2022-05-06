@@ -8,10 +8,6 @@
 import UIKit
 
 final class LoginViewController: UIViewController, DelegateActions {
-    
-    var users: [Register] {
-        return RegisterManager.getUsers()
-    }
    
     lazy var loginView = LoginView(delegate: self, terms: "I agree to the terms of use", logo: UIImage(named: "f1.png"))
     
@@ -31,13 +27,14 @@ final class LoginViewController: UIViewController, DelegateActions {
     func loginAction() {
         guard let verifyNameField = loginView.nameField.text?.isEmpty else {return}
         guard let verifyKeyField = loginView.keyField.text?.isEmpty else {return}
-        let verifyLogin = RegisterManager.getSavedUsers(email: loginView.nameField.text ?? "", password: loginView.keyField.text ?? "")
         
-        if loginView.switchButton.isOn && !verifyNameField && !verifyKeyField {
+        if RegisterManager.getSavedUsers(email: loginView.nameField.text ?? "", password: loginView.keyField.text ?? "") && loginView.switchButton.isOn && !verifyNameField && !verifyKeyField {
             let tabBarController = TabBarController()
             present(tabBarController, animated: true, completion: nil)
         } else if verifyNameField || verifyKeyField {
             self.showAlert(title: "Oops", message: "Fill in the fields correctly.", style: .alert)
+        } else {
+            self.showAlert(title: "Oops", message: "Username or password not found", style: .alert)
         }
     }
     

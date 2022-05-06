@@ -18,9 +18,8 @@ final class RegisterManager {
         return users
     }
     
-    static func getSavedUsers(email: String, password: String) -> [Register] {
+    static func getSavedUsers(email: String, password: String) -> Bool {
         let savedUsers: [Register] = getUsers()
-        let verifyLogin = savedUsers.filter({ return $0.email == email && $0.password == password })
-        return verifyLogin
+        return !savedUsers.filter({ $0.email == email && $0.password == password }).isEmpty
     }
 }
