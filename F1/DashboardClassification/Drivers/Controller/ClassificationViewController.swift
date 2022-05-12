@@ -8,36 +8,21 @@
 import Foundation
 import UIKit
 
-final class ClassificationViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
+final class ClassificationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var drivers: [Driver] = []
     
     var driverStandings: [DriverStanding] = []
     
-    var round: [String] = []
-    
     var api: F1API = .init()
    
-    lazy var classificationView: ClassificationView = .init(tableDataSource: self, tableDelegate: self, collectionDelegate: self, collectionDataSource: self)
+    lazy var classificationView: ClassificationView = .init(tableDataSource: self, tableDelegate: self)
     
     override func loadView() {
         view = classificationView
         view.backgroundColor = .white
     }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return round.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell: RoundCell = collectionView.dequeueReusableCell(withReuseIdentifier: "roundCell", for: indexPath) as? RoundCell else {
-            return UICollectionViewCell()
-        }
-        let round: String = round[indexPath.item]
-        cell.setupCell(round: round)
-        return cell
-    }
-    
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return drivers.count
     }
@@ -58,7 +43,6 @@ final class ClassificationViewController: UIViewController, UICollectionViewDele
             DispatchQueue.main.async {
                 self.drivers = classificationResponse?.mrData.standingsTable.standingsLists.first?.driverStandings.map({$0.driver}) ?? []
                 self.driverStandings = classificationResponse?.mrData.standingsTable.standingsLists.first?.driverStandings ?? []
-                self.round = classificationResponse?.mrData.standingsTable.standingsLists.map({$0.round}) ?? []
                 self.classificationView.classificationTableView.reloadData()
             }
         }

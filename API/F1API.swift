@@ -4,8 +4,7 @@
 //
 //  Created by Matheus Villaça on 25/03/22.
 //
-
-import Foundation
+import Alamofire
 
 final class F1API {
     
@@ -36,6 +35,5 @@ final class F1API {
         let request: URLRequest = .init(url: url)
         RequestManager.request(request, completion: completion)
     }
-    
     
 }

@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let register: RegisterViewController = .init(nibName: nil, bundle: nil)
         
         let window: UIWindow = .init(frame: UIScreen.main.bounds)
-        window.rootViewController = classification
+        window.rootViewController = tab
         self.window = window
         return true
     }

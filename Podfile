@@ -7,7 +7,7 @@ target 'FormulaOne' do
   # Pods for FormulaOne
   pod 'Kingfisher', '~> 7.0'
   pod 'PKHUD', '~> 5.0'
-  pod 'SwiftKeychainWrapper','~> 3.0.1'	
+  pod 'Alamofire'
 
 end
 

@@ -28,11 +28,17 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let teamsBarItem = UITabBarItem(title: "Teams", image: UIImage(named: "teams"), selectedImage: UIImage(named: "teams"))
         teamsController.tabBarItem = teamsBarItem
         
+        let classificationController = ClassificationViewController()
+        let classificationNavigationController: CustomNavigationController = .init(rootViewController: classificationController)
+        let classificationBarItem = UITabBarItem(title: "Standings", image: UIImage(named: "standings"), selectedImage: UIImage(named: "standings"))
+        classificationController.tabBarItem = classificationBarItem
+        
         
         
         dashboardSeasonNavigationController.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         teamsNavigationController.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        self.viewControllers = [dashboardSeasonController, teamsController]
+        classificationNavigationController.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.viewControllers = [dashboardSeasonController, teamsController, classificationController]
     }
     
 }
