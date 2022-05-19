@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DashboardSeasonViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class SeasonViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var api: F1API = .init()
     

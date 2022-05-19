@@ -16,13 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let login: LoginViewController = .init(nibName: nil, bundle: nil)
         let tab: TabBarController = .init(nibName: nil, bundle: nil)
-        let classification: ClassificationViewController = .init()
         let register: RegisterViewController = .init(nibName: nil, bundle: nil)
+        let segmented: ClassificationViewController = .init(nibName: nil, bundle: nil)
         
         let window: UIWindow = .init(frame: UIScreen.main.bounds)
-        window.rootViewController = tab
+        window.rootViewController = segmented
         self.window = window
         return true
     }
 }
-

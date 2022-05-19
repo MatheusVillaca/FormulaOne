@@ -18,27 +18,18 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let dashboardSeasonController = DashboardSeasonViewController()
-        let dashboardSeasonNavigationController: CustomNavigationController = .init(rootViewController: dashboardSeasonController)
-        let dashboardSeasonBarItem = UITabBarItem (title: "Season" ,image: UIImage(named: "calendar"), selectedImage: UIImage(named: "calendar"))
-        dashboardSeasonController.tabBarItem = dashboardSeasonBarItem
-        
-        let teamsController = TeamsViewController()
-        let teamsNavigationController: CustomNavigationController = .init(rootViewController: teamsController)
-        let teamsBarItem = UITabBarItem(title: "Teams", image: UIImage(named: "teams"), selectedImage: UIImage(named: "teams"))
-        teamsController.tabBarItem = teamsBarItem
+        let seasonController = SeasonViewController()
+        let seasonNavigationController: UINavigationController = .init(rootViewController: seasonController)
+        let seasonBarItem = UITabBarItem (title: "Season" ,image: UIImage(named: "calendar"), selectedImage: UIImage(named: "calendar"))
+        seasonNavigationController.tabBarItem = seasonBarItem
         
         let classificationController = ClassificationViewController()
-        let classificationNavigationController: CustomNavigationController = .init(rootViewController: classificationController)
+        let classificationNavigationController: UINavigationController = .init(rootViewController: classificationController)
         let classificationBarItem = UITabBarItem(title: "Standings", image: UIImage(named: "standings"), selectedImage: UIImage(named: "standings"))
         classificationController.tabBarItem = classificationBarItem
         
-        
-        
-        dashboardSeasonNavigationController.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        teamsNavigationController.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        seasonNavigationController.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         classificationNavigationController.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        self.viewControllers = [dashboardSeasonController, teamsController, classificationController]
+        self.viewControllers = [seasonController, classificationController]
     }
-    
 }

@@ -58,15 +58,35 @@ class StandingsTable: Codable {
 }
 class StandingsList: Codable {
     let season, round: String
-    let driverStandings: [DriverStanding]
+    let driverStandings: [DriverStandings]?
+    let constructorStandings: [ConstructorStanding]?
 
     enum CodingKeys: String, CodingKey {
         case season, round
         case driverStandings = "DriverStandings"
+        case constructorStandings = "ConstructorStandings"
     }
 }
 
-class DriverStanding: Codable {
+class ConstructorStanding: Codable {
+    let position, positionText, points, wins: String
+    let constructor: Constructor
+
+    enum CodingKeys: String, CodingKey {
+        case position, positionText, points, wins
+        case constructor = "Constructor"
+    }
+
+    init(position: String, positionText: String, points: String, wins: String, constructor: Constructor) {
+        self.position = position
+        self.positionText = positionText
+        self.points = points
+        self.wins = wins
+        self.constructor = constructor
+    }
+}
+
+class DriverStandings: Codable {
     let position, positionText, points, wins: String
     let driver: Driver
     let constructors: [Constructor]
@@ -84,24 +104,6 @@ class DriverStanding: Codable {
         self.wins = wins
         self.driver = driver
         self.constructors = constructors
-    }
-}
-
-class Constructor: Codable {
-    let constructorID: String
-    let url: String
-    let name, nationality: String
-
-    enum CodingKeys: String, CodingKey {
-        case constructorID = "constructorId"
-        case url, name, nationality
-    }
-
-    init(constructorID: String, url: String, name: String, nationality: String) {
-        self.constructorID = constructorID
-        self.url = url
-        self.name = name
-        self.nationality = nationality
     }
 }
 

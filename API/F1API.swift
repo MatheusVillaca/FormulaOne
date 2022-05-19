@@ -36,4 +36,18 @@ final class F1API {
         RequestManager.request(request, completion: completion)
     }
     
+    func getConstructorsStandings(completion: @escaping ((_ standings: ClassificationResponse?) -> Void)) {
+
+        guard let urlComponents: URLComponents = URLComponents(string: "http://ergast.com/api/f1/2022/constructorStandings.json") else {
+            completion (nil)
+            return
+        }
+        guard let url: URL = urlComponents.url else {
+            completion (nil)
+            return
+        }
+        let request: URLRequest = .init(url: url)
+        RequestManager.request(request, completion: completion)
+    }
+    
 }
