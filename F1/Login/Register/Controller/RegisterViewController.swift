@@ -26,12 +26,26 @@ final class RegisterViewController: UIViewController, DelegateRegisterAction {
     }
     
     func confirmButton(name: String, email: String, password: String, confirmPassword: String) {
-        if registerView.registerPassword.text == registerView.registerPasswordConfirm.text {
+        guard let confirmHavePassword = registerView.registerPassword.text?.isEmpty else { return }
+        
+        if registerView.registerPassword.text == registerView.registerPasswordConfirm.text && !confirmHavePassword && registerView.switchButton.isOn {
             let register: Register = .init(name: name, email: email, password: password, confirmPassword: confirmPassword)
             newUsers.append(register)
             self.dismiss(animated: true, completion: nil)
+        } else if !registerView.switchButton.isOn {
+            self.showAlert(title: "Oops!", message: "You must agree to the terms of use", style: .alert)
         } else {
             self.showAlert(title: "Oops!", message: "Passwords do not match", style: .alert)
+        }
+    }
+    
+    func toggleTermsOfUse() {
+        if !registerView.switchButton.isOn {
+            registerView.registerConfirmButton.isEnabled = false
+            registerView.registerConfirmButton.backgroundColor = .lightGray
+        } else {
+            registerView.registerConfirmButton.isEnabled = true
+            registerView.registerConfirmButton.backgroundColor = .systemBlue
         }
     }
     

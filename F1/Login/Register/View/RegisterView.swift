@@ -10,6 +10,7 @@ import UIKit
 
 protocol DelegateRegisterAction {
     func confirmButton(name: String, email: String, password: String, confirmPassword: String)
+    func toggleTermsOfUse()
 }
 
 final class RegisterView: UIView, ViewCode {
@@ -100,7 +101,7 @@ final class RegisterView: UIView, ViewCode {
     
     let registerConfirmButton: UIButton = {
         let registerConfirmButton: UIButton = UIButton(frame: .zero)
-        registerConfirmButton.backgroundColor = .systemBlue
+        registerConfirmButton.backgroundColor = .lightGray
         registerConfirmButton.layer.borderColor = UIColor.black.cgColor
         registerConfirmButton.layer.cornerRadius = 8
         registerConfirmButton.layer.borderWidth = 0.5
@@ -110,10 +111,37 @@ final class RegisterView: UIView, ViewCode {
         return registerConfirmButton
     }()
     
+    let containerTermsOfUse: UIView = {
+        let containerTermsOfUse: UIView = UIView(frame: .zero)
+        containerTermsOfUse.translatesAutoresizingMaskIntoConstraints = false
+        return containerTermsOfUse
+    }()
+    
+    let termsOfUseLabelView: UILabel = {
+        let termsOfUseLabelView: UILabel = UILabel(frame: .zero)
+        termsOfUseLabelView.font = termsOfUseLabelView.font.withSize(18)
+        termsOfUseLabelView.text = "I agree to the terms of use"
+        termsOfUseLabelView.numberOfLines = 0
+        termsOfUseLabelView.translatesAutoresizingMaskIntoConstraints = false
+        return termsOfUseLabelView
+    }()
+    
+    let switchButton: UISwitch = {
+        let switchButton: UISwitch = UISwitch(frame: .zero)
+        switchButton.addTarget(self, action: #selector(toggleTermsOfUse), for: .touchUpInside)
+        switchButton.translatesAutoresizingMaskIntoConstraints = false
+        return switchButton
+    }()
+    
+    
     var delegate: DelegateRegisterAction
     
     @objc func registerConfirmAction() {
         delegate.confirmButton(name: registerName.text ?? "", email: registerEmail.text ?? "", password: registerPassword.text ?? "", confirmPassword: registerPasswordConfirm.text ?? "")
+    }
+    
+    @objc func toggleTermsOfUse() {
+        delegate.toggleTermsOfUse()
     }
     
     init(delegate: DelegateRegisterAction){
@@ -137,6 +165,9 @@ final class RegisterView: UIView, ViewCode {
         addSubview(confirmPasswordTitleLabel)
         addSubview(registerPasswordConfirm)
         addSubview(registerConfirmButton)
+        containerTermsOfUse.addSubview(switchButton)
+        containerTermsOfUse.addSubview(termsOfUseLabelView)
+        addSubview(containerTermsOfUse)
     }
     
     func setupConstraints() {
@@ -175,6 +206,19 @@ final class RegisterView: UIView, ViewCode {
         registerConfirmButton.topAnchor.constraint(equalTo: registerPasswordConfirm.bottomAnchor, constant: 5).isActive = true
         registerConfirmButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         registerConfirmButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        containerTermsOfUse.topAnchor.constraint(equalTo: registerConfirmButton.bottomAnchor, constant: 5).isActive = true
+        containerTermsOfUse.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
+        containerTermsOfUse.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
+        containerTermsOfUse.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        switchButton.topAnchor.constraint(equalTo: containerTermsOfUse.topAnchor).isActive = true
+        switchButton.leadingAnchor.constraint(equalTo: containerTermsOfUse.leadingAnchor).isActive = true
+        switchButton.bottomAnchor.constraint(equalTo: containerTermsOfUse.bottomAnchor).isActive = true
+        
+        termsOfUseLabelView.topAnchor.constraint(equalTo: containerTermsOfUse.topAnchor).isActive = true
+        termsOfUseLabelView.leadingAnchor.constraint(equalTo: switchButton.trailingAnchor, constant: 20).isActive = true
+        termsOfUseLabelView.bottomAnchor.constraint(equalTo: containerTermsOfUse.bottomAnchor).isActive = true
         
     }
 }

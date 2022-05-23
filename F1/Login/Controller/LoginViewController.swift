@@ -8,13 +8,13 @@
 import UIKit
 
 final class LoginViewController: UIViewController, DelegateActions {
-   
-    lazy var loginView = LoginView(delegate: self, terms: "I agree to the terms of use", logo: UIImage(named: "f1.png"))
+    
+    lazy var loginView = LoginView(delegate: self, logo: UIImage(named: "f1.png"))
     
     override func viewDidLoad() {
         view = loginView
         view.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundLogin")!) 
-        
+
     }
     
     func showAlert(title: String, message: String, style: UIAlertController.Style) {
@@ -25,10 +25,10 @@ final class LoginViewController: UIViewController, DelegateActions {
     }
     
     func loginAction() {
-        guard let verifyNameField = loginView.nameField.text?.isEmpty else {return}
-        guard let verifyKeyField = loginView.keyField.text?.isEmpty else {return}
+        guard let verifyNameField = loginView.nameField.text?.isEmpty else { return }
+        guard let verifyKeyField = loginView.keyField.text?.isEmpty else { return }
         
-        if RegisterManager.getSavedUsers(email: loginView.nameField.text ?? "", password: loginView.keyField.text ?? "") && loginView.switchButton.isOn && !verifyNameField && !verifyKeyField {
+        if RegisterManager.getSavedUsers(email: loginView.nameField.text ?? "", password: loginView.keyField.text ?? "") && !verifyNameField && !verifyKeyField {
             let tabBarController = TabBarController()
             present(tabBarController, animated: true, completion: nil)
         } else if verifyNameField || verifyKeyField {
@@ -36,12 +36,6 @@ final class LoginViewController: UIViewController, DelegateActions {
         } else {
             self.showAlert(title: "Oops", message: "Username or password not found", style: .alert)
         }
-    }
-    
-    func toggleTermsOfUse() {
-        loginView.loginButton.isEnabled = loginView.switchButton.isOn
-        loginView.loginButton.alpha = loginView.switchButton.isOn ? 1.0 : 0.5
-        loginView.loginButton.backgroundColor = loginView.switchButton.isOn ? #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1) : .lightGray
     }
     
     func register() {

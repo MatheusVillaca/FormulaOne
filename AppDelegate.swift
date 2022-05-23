@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let segmented: ClassificationViewController = .init(nibName: nil, bundle: nil)
         
         let window: UIWindow = .init(frame: UIScreen.main.bounds)
-        window.rootViewController = segmented
+        window.rootViewController = login
         self.window = window
         return true
     }

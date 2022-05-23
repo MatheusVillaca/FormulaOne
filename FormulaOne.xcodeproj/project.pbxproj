@@ -172,10 +172,10 @@
 			isa = PBXGroup;
 			children = (
 				E2E8433D27E251D9002C20B1 /* Login */,
-				E248414A27F4EAD8003355A9 /* Classification */,
-				E248413D27F4DC35003355A9 /* DashboardTeams */,
 				E28BE84727EE504E00F72F28 /* TabBarController */,
 				E28BE83C27EE233000F72F28 /* Season */,
+				E248413D27F4DC35003355A9 /* Teams */,
+				E248414A27F4EAD8003355A9 /* Classification */,
 				E20F9A6B279236370013C5B7 /* Info.plist */,
 				E20F9A66279236370013C5B7 /* Assets.xcassets */,
 				E20F9A63279236270013C5B7 /* Main.storyboard */,
@@ -209,14 +209,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		E248413D27F4DC35003355A9 /* DashboardTeams */ = {
+		E248413D27F4DC35003355A9 /* Teams */ = {
 			isa = PBXGroup;
 			children = (
 				E248414727F4DEDA003355A9 /* View */,
 				E248413F27F4DC52003355A9 /* Model */,
 				E248413E27F4DC4B003355A9 /* Controller */,
 			);
-			path = DashboardTeams;
+			path = Teams;
 			sourceTree = "<group>";
 		};
 		E248413E27F4DC4B003355A9 /* Controller */ = {

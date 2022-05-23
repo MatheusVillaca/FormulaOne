@@ -9,7 +9,6 @@ import UIKit
 
 protocol DelegateActions {
     func loginAction()
-    func toggleTermsOfUse()
     func register()
 }
 
@@ -44,23 +43,11 @@ final class LoginView: UIView, ViewCode {
         return keyField
     }()
     
-    let containerTermsOfUse: UIView = {
-        let containerTermsOfUse: UIView = UIView(frame: .zero)
-        containerTermsOfUse.translatesAutoresizingMaskIntoConstraints = false
-        return containerTermsOfUse
-    }()
     
-    let termsOfUseLabelView: UILabel = {
-        let termsOfUseLabelView: UILabel = UILabel(frame: .zero)
-        termsOfUseLabelView.font = termsOfUseLabelView.font.withSize(18)
-        termsOfUseLabelView.numberOfLines = 0
-        termsOfUseLabelView.translatesAutoresizingMaskIntoConstraints = false
-        return termsOfUseLabelView
-    }()
     
     let loginButton: UIButton = {
         let loginButton: UIButton = UIButton(frame: .zero)
-        loginButton.backgroundColor = .lightGray
+        loginButton.backgroundColor = .systemBlue
         loginButton.layer.borderColor = UIColor.black.cgColor
         loginButton.layer.cornerRadius = 8
         loginButton.layer.borderWidth = 0.5
@@ -70,13 +57,7 @@ final class LoginView: UIView, ViewCode {
         return loginButton
     }()
     
-    let switchButton: UISwitch = {
-        let switchButton: UISwitch = UISwitch(frame: .zero)
-        switchButton.addTarget(self, action: #selector(toggleTermsOfUse), for: .touchUpInside)
-        switchButton.translatesAutoresizingMaskIntoConstraints = false
-        return switchButton
-    }()
-    
+   
     let register: UIButton = {
         let register: UIButton = UIButton(frame: .zero)
         register.setTitle("REGISTER", for: .normal)
@@ -88,11 +69,10 @@ final class LoginView: UIView, ViewCode {
     
     var delegate: DelegateActions?
     
-    init(delegate: DelegateActions, terms: String, logo: UIImage?) {
+    init(delegate: DelegateActions, logo: UIImage?) {
         super.init(frame: .zero)
         self.logoLogin.image = logo
         self.delegate = delegate
-        self.termsOfUseLabelView.text = terms
         backgroundColor = .none
         setupViews()
     }
@@ -105,22 +85,15 @@ final class LoginView: UIView, ViewCode {
         delegate?.loginAction()
     }
     
-    @objc func toggleTermsOfUse() {
-        delegate?.toggleTermsOfUse()
-    }
-    
     @objc func registerAction() {
         delegate?.register()
     }
     
     func setupViewHierarchy() {
         addSubview(logoLogin)
-        containerTermsOfUse.addSubview(switchButton)
-        containerTermsOfUse.addSubview(termsOfUseLabelView)
         addSubview(nameField)
         addSubview(keyField)
         addSubview(loginButton)
-        addSubview(containerTermsOfUse)
         addSubview(register)
     }
     
@@ -147,20 +120,7 @@ final class LoginView: UIView, ViewCode {
         loginButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-        containerTermsOfUse.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 5).isActive = true
-        containerTermsOfUse.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
-        containerTermsOfUse.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
-        containerTermsOfUse.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        switchButton.topAnchor.constraint(equalTo: containerTermsOfUse.topAnchor).isActive = true
-        switchButton.leadingAnchor.constraint(equalTo: containerTermsOfUse.leadingAnchor).isActive = true
-        switchButton.bottomAnchor.constraint(equalTo: containerTermsOfUse.bottomAnchor).isActive = true
-        
-        termsOfUseLabelView.topAnchor.constraint(equalTo: containerTermsOfUse.topAnchor).isActive = true
-        termsOfUseLabelView.leadingAnchor.constraint(equalTo: switchButton.trailingAnchor, constant: 20).isActive = true
-        termsOfUseLabelView.bottomAnchor.constraint(equalTo: containerTermsOfUse.bottomAnchor).isActive = true
-        
-        register.topAnchor.constraint(equalTo: containerTermsOfUse.bottomAnchor, constant: 25).isActive = true
+        register.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 25).isActive = true
         register.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         register.heightAnchor.constraint(equalToConstant: 20).isActive = true
         register.widthAnchor.constraint(equalToConstant: 100).isActive = true
