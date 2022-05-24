@@ -4,7 +4,7 @@
 //
 //  Created by Matheus Villaça on 25/03/22.
 //
-import Alamofire
+import Foundation
 
 final class F1API {
     

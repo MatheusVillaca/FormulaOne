@@ -1,5 +1,5 @@
 //
-//  RaceResponse.swift
+//  SeasonResponse.swift
 //  Formula1
 //
 //  Created by Matheus Villaça on 25/03/22.

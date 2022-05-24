@@ -30,11 +30,30 @@ final class Race: Codable {
 
 class Circuit: Codable {
     
+    let circuitID: String
+    let url: String
+    let circuitName: String
+    let location: Location
+    let id: ID
+
+    enum CodingKeys: String, CodingKey {
+        case circuitID = "circuitId"
+        case location = "Location"
+        case url, circuitName
+        case id
+    }
+    
+    init(circuitID: String, url: String, circuitName: String, location: Location) {
+            self.circuitID = circuitID
+            self.url = url
+            self.circuitName = circuitName
+            self.location = location
+        }
+    
     enum ID: String, Codable {
         case bahrain, jeddah, albertPark = "albert_park", imola, miami, catalunya, monaco, BAK, villeneuve, silverstone, redBullRing = "red_bull_ring", ricard, hungaroring, spa, zandvoort, monza, marinaBay = "marina_bay", suzuka, americas, rodriguez, interlagos, yasMarina = "yas_marina"
     }
-    
-    let id: ID
+
     var imageURL: URL? {
         switch id {
         case .bahrain:
@@ -81,11 +100,27 @@ class Circuit: Codable {
             return URL(string: "https://s2.glbimg.com/HTtoh6zsaCL0THrbNKC23j6cCA0=/0x0:3189x1390/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2021/i/m/FGggffSEOkukTpPAYigw/interlagos2.jpg")
         case .yasMarina:
             return URL(string: "https://s2.glbimg.com/-C-fZgGLnFIXypk7JwUBvmJrdbo=/0x0:1792x828/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2021/a/a/jioQUyRZq1fuAVKQArEw/circuito-abu-dhabi.jpg")
-        
         }
     }
-    
-    private enum CodingKeys: String, CodingKey {
-        case id = "circuitId"
+}
+
+class Location: Codable {
+    let lat, long, locality, country: String
+
+    init(lat: String, long: String, locality: String, country: String) {
+        self.lat = lat
+        self.long = long
+        self.locality = locality
+        self.country = country
     }
 }
+
+class FirstPractice: Codable {
+    let date, time: String
+
+    init(date: String, time: String) {
+        self.date = date
+        self.time = time
+    }
+}
+
