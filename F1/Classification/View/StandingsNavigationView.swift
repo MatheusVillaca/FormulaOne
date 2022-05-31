@@ -5,7 +5,6 @@
 //  Created by Matheus Villaça on 13/05/22.
 //
 
-import Foundation
 import UIKit
 
 protocol DelegateSegmentAction {
@@ -18,6 +17,7 @@ final class StandingsNavigationView: UIView, ViewCode {
         let titleLabel: UILabel = UILabel(frame: .zero)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = titleLabel.font.withSize(20)
+        titleLabel.textColor = .white
         titleLabel.text = "CLASSIFICATION"
         return titleLabel
     }()
@@ -26,6 +26,7 @@ final class StandingsNavigationView: UIView, ViewCode {
         let positionLabel: UILabel = UILabel(frame: .zero)
         positionLabel.translatesAutoresizingMaskIntoConstraints = false
         positionLabel.font = positionLabel.font.withSize(10)
+        positionLabel.textColor = .black
         positionLabel.text = "POSITION"
         return positionLabel
     }()
@@ -34,6 +35,7 @@ final class StandingsNavigationView: UIView, ViewCode {
         let driverLaber: UILabel = UILabel(frame: .zero)
         driverLaber.translatesAutoresizingMaskIntoConstraints = false
         driverLaber.font = driverLaber.font.withSize(10)
+        driverLaber.textColor = .black
         driverLaber.text = "DRIVER"
         return driverLaber
     }()
@@ -42,6 +44,7 @@ final class StandingsNavigationView: UIView, ViewCode {
         let pointsLabel: UILabel = UILabel(frame: .zero)
         pointsLabel.translatesAutoresizingMaskIntoConstraints = false
         pointsLabel.font = pointsLabel.font.withSize(10)
+        pointsLabel.textColor = .black
         pointsLabel.text = "POINTS"
         return pointsLabel
     }()
@@ -50,6 +53,7 @@ final class StandingsNavigationView: UIView, ViewCode {
     let classificationTableView: UITableView = {
         let classificationTableView: UITableView = UITableView(frame: .zero)
         classificationTableView.register(ClassificationCell.self, forCellReuseIdentifier: "classificationCell")
+        classificationTableView.backgroundView = UIImageView(image: UIImage(named: "backgroundf1carbon"))
         classificationTableView.translatesAutoresizingMaskIntoConstraints = false
         return classificationTableView
     }()
@@ -61,9 +65,10 @@ final class StandingsNavigationView: UIView, ViewCode {
         segmentedControl.addTarget(self, action: #selector(didTapedButton), for: .valueChanged)
         segmentedControl.layer.borderWidth = 1
         segmentedControl.layer.borderColor = UIColor.black.cgColor
-        segmentedControl.tintColor = .lightGray
         segmentedControl.layer.masksToBounds = true
         segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.backgroundColor = .systemRed
+        segmentedControl.tintColor = .systemRed
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         return segmentedControl
     }()

@@ -13,6 +13,7 @@ final class TeamsCell: UITableViewCell, ViewCode {
     var equipeName: UILabel = {
         var equipeName: UILabel = UILabel(frame: .zero)
         equipeName.font = equipeName.font.withSize(20)
+        equipeName.textColor = .white
         equipeName.translatesAutoresizingMaskIntoConstraints = false
         return equipeName
     }()
@@ -40,7 +41,8 @@ final class TeamsCell: UITableViewCell, ViewCode {
         contentView.frame = contentView.frame.inset(by: margins)
         contentView.layer.cornerRadius = 8
         contentView.layer.borderWidth = 2
-        contentView.layer.borderColor = UIColor.black.cgColor
+        contentView.layer.borderColor = UIColor.red.cgColor
+        backgroundColor = .clear
     }
     
     func setupConstraints() {

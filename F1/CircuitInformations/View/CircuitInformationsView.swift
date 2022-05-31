@@ -5,6 +5,10 @@
 //  Created by Matheus Villaça on 24/05/22.
 //
 
+protocol DelegateMoreInformationsLink {
+    func openUrl(_ url: String)
+}
+
 import Kingfisher
 import UIKit
 
@@ -16,12 +20,6 @@ final class CircuitInformationsView: UIView, ViewCode {
         return posterCircuit
     }()
     
-    var countryFlag: UIImageView = {
-        var countryFlag: UIImageView = UIImageView(frame: .zero)
-        countryFlag.translatesAutoresizingMaskIntoConstraints = false
-        return countryFlag
-    }()
-    
     var circuitName: UILabel = {
         var circuitName: UILabel = UILabel(frame: .zero)
         circuitName.translatesAutoresizingMaskIntoConstraints = false
@@ -30,7 +28,7 @@ final class CircuitInformationsView: UIView, ViewCode {
     
     var tableViewDates: UITableView = {
         var tableViewDates: UITableView = UITableView(frame: .zero)
-        tableViewDates.register(CircuitInformationCell.self, forCellReuseIdentifier: "CircuitInformationCell")
+        tableViewDates.register(CircuitInformationCell.self, forCellReuseIdentifier: "circuitInformationCell")
         tableViewDates.translatesAutoresizingMaskIntoConstraints = false
         return tableViewDates
     }()
@@ -47,21 +45,24 @@ final class CircuitInformationsView: UIView, ViewCode {
         return circuitCity
     }()
 
-    var circuitMoreInformations: UILabel = {
-        var circuitMoreInformations: UILabel = UILabel(frame: .zero)
+    var circuitMoreInformations: UIButton = {
+        var circuitMoreInformations: UIButton = UIButton(frame: .zero)
+        circuitMoreInformations.addTarget(self, action: #selector(didTapMoreInformationsLink), for: .touchUpInside)
+        circuitMoreInformations.setTitle("More Informations", for: .normal)
         circuitMoreInformations.translatesAutoresizingMaskIntoConstraints = false
         return circuitMoreInformations
     }()
     
-    init(poster: URL?, flag: URL?, name: String, country: String, city: String, informations: String, delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
+    var delegate: DelegateMoreInformationsLink?
+    
+    init(poster: URL?, name: String, country: String, city: String, delegateMoreInformations: DelegateMoreInformationsLink, delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
         self.tableViewDates.dataSource = dataSource
         self.tableViewDates.delegate = delegate
         self.posterCircuit.kf.setImage(with: poster)
-        self.countryFlag.kf.setImage(with: flag)
         self.circuitName.text = name
         self.circuitCountry.text = country
         self.circuitCity.text = city
-        self.circuitMoreInformations.text = informations
+        self.delegate = delegateMoreInformations
         super.init(frame: .zero)
         setupViews()
     }
@@ -70,9 +71,12 @@ final class CircuitInformationsView: UIView, ViewCode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc func didTapMoreInformationsLink(_ url: String) {
+        delegate?.openUrl(url)
+    }
+    
     func setupViewHierarchy() {
         addSubview(posterCircuit)
-        addSubview(countryFlag)
         addSubview(circuitName)
         addSubview(tableViewDates)
         addSubview(circuitCountry)
@@ -85,17 +89,10 @@ final class CircuitInformationsView: UIView, ViewCode {
         posterCircuit.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5).isActive = true
         posterCircuit.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         posterCircuit.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        posterCircuit.bottomAnchor.constraint(equalTo: countryFlag.topAnchor, constant: -5).isActive = true
-        
-        countryFlag.topAnchor.constraint(equalTo: posterCircuit.bottomAnchor, constant: 5).isActive = true
-        countryFlag.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
-        countryFlag.trailingAnchor.constraint(equalTo: circuitName.leadingAnchor, constant: 8).isActive = true
-        countryFlag.bottomAnchor.constraint(equalTo: tableViewDates.topAnchor, constant: -5).isActive = true
+        posterCircuit.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
         circuitName.topAnchor.constraint(equalTo: posterCircuit.bottomAnchor, constant: 5).isActive = true
-        circuitName.leadingAnchor.constraint(equalTo: countryFlag.trailingAnchor, constant: -8).isActive = true
-        circuitName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
-        circuitName.bottomAnchor.constraint(equalTo: tableViewDates.topAnchor, constant: -5).isActive = true
+        circuitName.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         tableViewDates.topAnchor.constraint(equalTo: circuitName.bottomAnchor, constant: 5).isActive = true
         tableViewDates.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true

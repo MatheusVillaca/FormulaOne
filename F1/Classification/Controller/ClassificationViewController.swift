@@ -21,6 +21,7 @@ final class ClassificationViewController: UIViewController, UITableViewDelegate,
     override func loadView() {
         view = standingView
         view.backgroundColor = .white
+        self.title = "Standings"
     }
     
     func didTapedButton() {

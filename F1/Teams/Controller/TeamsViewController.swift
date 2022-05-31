@@ -21,10 +21,11 @@ final class TeamsViewController: UIViewController, UITableViewDelegate, UITableV
                          .init(name: "Williams", logo: "Williams"),
                          .init(name: "Alpine", logo: "Alpine")]
     
-    lazy var teamsView: DashboardSeasonView = .init(delegate: self, dataSource: self)
+    lazy var teamsView: SeasonView = .init(delegate: self, dataSource: self)
     
     override func loadView() {
         view = teamsView
+        self.title = "Teams"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

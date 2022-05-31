@@ -5,28 +5,27 @@
 //  Created by Matheus Villaça on 31/03/22.
 //
 
-import Foundation
 import UIKit
 
 final class ClassificationCell: UITableViewCell, ViewCode {
     
     let containerPosition: UIView = {
         let containerPosition: UIView = UIView(frame: .zero)
-        containerPosition.backgroundColor = .lightGray
+        containerPosition.backgroundColor = .lightGray.withAlphaComponent(0.2)
         containerPosition.translatesAutoresizingMaskIntoConstraints = false
         return containerPosition
     }()
     
     let containerName: UIView = {
         let containerName: UIView = UIView(frame: .zero)
-        containerName.backgroundColor = .white
+        containerName.backgroundColor = .white.withAlphaComponent(0.2)
         containerName.translatesAutoresizingMaskIntoConstraints = false
         return containerName
     }()
     
     let containerPoints: UIView = {
         let containerPoints: UIView = UIView(frame: .zero)
-        containerPoints.backgroundColor = .lightGray
+        containerPoints.backgroundColor = .lightGray.withAlphaComponent(0.2)
         containerPoints.translatesAutoresizingMaskIntoConstraints = false
         return containerPoints
     }()
@@ -43,7 +42,7 @@ final class ClassificationCell: UITableViewCell, ViewCode {
         let nameLabel: UILabel = UILabel(frame: .zero)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = nameLabel.font.withSize(15)
-        nameLabel.textColor = .black
+        nameLabel.textColor = .white
         return nameLabel
     }()
     
@@ -69,6 +68,10 @@ final class ClassificationCell: UITableViewCell, ViewCode {
         self.nameLabel.text = name
         self.pointsLabel.text = points
         setupViews()
+    }
+    
+    func configureViews() {
+        backgroundColor = .clear
     }
     
     func setupConstraints() {

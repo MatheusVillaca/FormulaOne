@@ -18,6 +18,7 @@
 		E241C527283D26D800C983FE /* CircuitInformationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E241C526283D26D800C983FE /* CircuitInformationsView.swift */; };
 		E241C52A283D2E1800C983FE /* CircuitInformationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E241C529283D2E1800C983FE /* CircuitInformationsCell.swift */; };
 		E241C52D283D3D7B00C983FE /* CircuitInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E241C52C283D3D7B00C983FE /* CircuitInformationsViewController.swift */; };
+		E242F50E28439F6200F7F1FE /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E242F50D28439F6200F7F1FE /* NavigationController.swift */; };
 		E248414427F4DCCC003355A9 /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E248414327F4DCCC003355A9 /* TeamsViewController.swift */; };
 		E248414627F4DD50003355A9 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = E248414527F4DD50003355A9 /* Team.swift */; };
 		E248414927F4DEEC003355A9 /* TeamsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E248414827F4DEEC003355A9 /* TeamsCell.swift */; };
@@ -26,8 +27,8 @@
 		E2511939281B13FE00F85B49 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2511938281B13FE00F85B49 /* RegisterViewController.swift */; };
 		E251193C281B16CA00F85B49 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251193B281B16CA00F85B49 /* Register.swift */; };
 		E251193E281B1D1E00F85B49 /* RegisterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E251193D281B1D1E00F85B49 /* RegisterManager.swift */; };
-		E28BE84127EE23DD00F72F28 /* DashboardSeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BE84027EE23DD00F72F28 /* DashboardSeasonView.swift */; };
-		E28BE84427EE254500F72F28 /* DashboardSeasonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BE84327EE254500F72F28 /* DashboardSeasonCell.swift */; };
+		E28BE84127EE23DD00F72F28 /* SeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BE84027EE23DD00F72F28 /* SeasonView.swift */; };
+		E28BE84427EE254500F72F28 /* SeasonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BE84327EE254500F72F28 /* SeasonCell.swift */; };
 		E28BE84627EE494200F72F28 /* SeasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BE84527EE494200F72F28 /* SeasonViewController.swift */; };
 		E28BE84927EE505D00F72F28 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BE84827EE505D00F72F28 /* TabBarController.swift */; };
 		E28BE84B27EE558E00F72F28 /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BE84A27EE558E00F72F28 /* Race.swift */; };
@@ -80,6 +81,7 @@
 		E241C526283D26D800C983FE /* CircuitInformationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitInformationsView.swift; sourceTree = "<group>"; };
 		E241C529283D2E1800C983FE /* CircuitInformationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitInformationsCell.swift; sourceTree = "<group>"; };
 		E241C52C283D3D7B00C983FE /* CircuitInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitInformationsViewController.swift; sourceTree = "<group>"; };
+		E242F50D28439F6200F7F1FE /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		E248414327F4DCCC003355A9 /* TeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
 		E248414527F4DD50003355A9 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		E248414827F4DEEC003355A9 /* TeamsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsCell.swift; sourceTree = "<group>"; };
@@ -88,8 +90,8 @@
 		E2511938281B13FE00F85B49 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		E251193B281B16CA00F85B49 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		E251193D281B1D1E00F85B49 /* RegisterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterManager.swift; sourceTree = "<group>"; };
-		E28BE84027EE23DD00F72F28 /* DashboardSeasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSeasonView.swift; sourceTree = "<group>"; };
-		E28BE84327EE254500F72F28 /* DashboardSeasonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSeasonCell.swift; sourceTree = "<group>"; };
+		E28BE84027EE23DD00F72F28 /* SeasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonView.swift; sourceTree = "<group>"; };
+		E28BE84327EE254500F72F28 /* SeasonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonCell.swift; sourceTree = "<group>"; };
 		E28BE84527EE494200F72F28 /* SeasonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonViewController.swift; sourceTree = "<group>"; };
 		E28BE84827EE505D00F72F28 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E28BE84A27EE558E00F72F28 /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
@@ -153,7 +155,7 @@
 			children = (
 				E20F9A5D279236270013C5B7 /* AppDelegate.swift */,
 				E28BE84F27EE5F6500F72F28 /* Managers */,
-				E28BE85227EE5FD500F72F28 /* API */,
+				E242F50C28439F4F00F7F1FE /* Navigation */,
 				E2E8433C27E25193002C20B1 /* Protocols */,
 				E20F9A5C279236260013C5B7 /* F1 */,
 				E20F9A73279236380013C5B7 /* ProjetoTests */,
@@ -177,6 +179,8 @@
 		E20F9A5C279236260013C5B7 /* F1 */ = {
 			isa = PBXGroup;
 			children = (
+				E241C521283D259F00C983FE /* CircuitInformations */,
+				E28BE85227EE5FD500F72F28 /* API */,
 				E2E8433D27E251D9002C20B1 /* Login */,
 				E28BE84727EE504E00F72F28 /* TabBarController */,
 				E28BE83C27EE233000F72F28 /* Season */,
@@ -247,6 +251,14 @@
 				E241C52C283D3D7B00C983FE /* CircuitInformationsViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E242F50C28439F4F00F7F1FE /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				E242F50D28439F6200F7F1FE /* NavigationController.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		E248413D27F4DC35003355A9 /* Teams */ = {
@@ -341,7 +353,6 @@
 		E28BE83C27EE233000F72F28 /* Season */ = {
 			isa = PBXGroup;
 			children = (
-				E241C521283D259F00C983FE /* CircuitInformations */,
 				E28BE83F27EE237300F72F28 /* Controller */,
 				E28BE83E27EE236D00F72F28 /* View */,
 				E28BE83D27EE235E00F72F28 /* Model */,
@@ -361,7 +372,7 @@
 		E28BE83E27EE236D00F72F28 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E28BE84027EE23DD00F72F28 /* DashboardSeasonView.swift */,
+				E28BE84027EE23DD00F72F28 /* SeasonView.swift */,
 				E28BE84227EE252A00F72F28 /* Cell */,
 			);
 			path = View;
@@ -378,7 +389,7 @@
 		E28BE84227EE252A00F72F28 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				E28BE84327EE254500F72F28 /* DashboardSeasonCell.swift */,
+				E28BE84327EE254500F72F28 /* SeasonCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -642,11 +653,12 @@
 			files = (
 				E241C52A283D2E1800C983FE /* CircuitInformationsCell.swift in Sources */,
 				E28BE84627EE494200F72F28 /* SeasonViewController.swift in Sources */,
-				E28BE84427EE254500F72F28 /* DashboardSeasonCell.swift in Sources */,
-				E28BE84127EE23DD00F72F28 /* DashboardSeasonView.swift in Sources */,
+				E28BE84427EE254500F72F28 /* SeasonCell.swift in Sources */,
+				E28BE84127EE23DD00F72F28 /* SeasonView.swift in Sources */,
 				E2511939281B13FE00F85B49 /* RegisterViewController.swift in Sources */,
 				E251193C281B16CA00F85B49 /* Register.swift in Sources */,
 				E248414627F4DD50003355A9 /* Team.swift in Sources */,
+				E242F50E28439F6200F7F1FE /* NavigationController.swift in Sources */,
 				E248414927F4DEEC003355A9 /* TeamsCell.swift in Sources */,
 				E2AB08922832847100838A3C /* ClassificationDataSource.swift in Sources */,
 				E28BE84B27EE558E00F72F28 /* Race.swift in Sources */,

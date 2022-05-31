@@ -13,11 +13,11 @@ final class SeasonViewController: UIViewController, UITableViewDelegate, UITable
     
     var races: [Race] = []
     
-    lazy var dashboardView: DashboardSeasonView = .init(delegate: self, dataSource: self)
+    lazy var dashboardView: SeasonView = .init(delegate: self, dataSource: self)
     
     override func loadView() {
         view = dashboardView
-        view.backgroundColor = .black
+        self.title = "Season"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,13 +25,19 @@ final class SeasonViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: DashboardSeasonCell = tableView.dequeueReusableCell(withIdentifier: "seasonCell", for: indexPath) as? DashboardSeasonCell else {
+        guard let cell: SeasonCell = tableView.dequeueReusableCell(withIdentifier: "seasonCell", for: indexPath) as? SeasonCell else {
             return UITableViewCell()
         }
         cell.accessoryType = .disclosureIndicator
         let race: Race = races[indexPath.row]
         cell.setupDashboardCell(title: race.name, image: race.circuit.imageURL, date: race.date, round: "ROUND \(race.round)")
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCircuit: Race = races[indexPath.row]
+        let circuitInformations: CircuitInformationsViewController = .init(selectedCircuit)
+        navigationController?.pushViewController(circuitInformations, animated: true)
     }
     
     init(api: F1API = F1API()) {
@@ -51,7 +57,7 @@ final class SeasonViewController: UIViewController, UITableViewDelegate, UITable
         api.getRaces { seasonResponse in
             DispatchQueue.main.async {
                 self.races = seasonResponse?.seasonData.raceTable.races ?? []
-                self.dashboardView.dashboardSeasonTableView.reloadData()
+                self.dashboardView.seasonTableView.reloadData()
             }
         }
     }

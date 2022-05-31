@@ -30,25 +30,16 @@ final class Race: Codable {
 
 class Circuit: Codable {
     
-    let circuitID: String
-    let url: String
+    let url: URL
     let circuitName: String
     let location: Location
     let id: ID
 
     enum CodingKeys: String, CodingKey {
-        case circuitID = "circuitId"
+        case id = "circuitId"
         case location = "Location"
         case url, circuitName
-        case id
     }
-    
-    init(circuitID: String, url: String, circuitName: String, location: Location) {
-            self.circuitID = circuitID
-            self.url = url
-            self.circuitName = circuitName
-            self.location = location
-        }
     
     enum ID: String, Codable {
         case bahrain, jeddah, albertPark = "albert_park", imola, miami, catalunya, monaco, BAK, villeneuve, silverstone, redBullRing = "red_bull_ring", ricard, hungaroring, spa, zandvoort, monza, marinaBay = "marina_bay", suzuka, americas, rodriguez, interlagos, yasMarina = "yas_marina"

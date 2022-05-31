@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-final class DashboardSeasonCell: UITableViewCell, ViewCode {
+final class SeasonCell: UITableViewCell, ViewCode {
     
     var circuitImage: UIImageView = {
         var circuitImage: UIImageView = UIImageView(frame: .zero)
@@ -19,6 +19,8 @@ final class DashboardSeasonCell: UITableViewCell, ViewCode {
     var round: UILabel = {
         var round: UILabel = UILabel(frame: .zero)
         round.font = round.font.withSize(15)
+        round.textColor = .white
+        round.backgroundColor = .clear
         round.translatesAutoresizingMaskIntoConstraints = false
         return round
     }()
@@ -27,9 +29,10 @@ final class DashboardSeasonCell: UITableViewCell, ViewCode {
         var circuitName: UILabel = UILabel(frame: .zero)
         circuitName.translatesAutoresizingMaskIntoConstraints = false
         circuitName.font = circuitName.font.withSize(15)
+        circuitName.backgroundColor = .clear
         circuitName.numberOfLines = 0
         circuitName.textAlignment = .left
-        circuitName.textColor = .black
+        circuitName.textColor = .white
         return circuitName
     }()
     
@@ -37,7 +40,8 @@ final class DashboardSeasonCell: UITableViewCell, ViewCode {
         var raceDate: UILabel = UILabel(frame: .zero)
         raceDate.font = raceDate.font.withSize(20)
         raceDate.textAlignment = .left
-        raceDate.textColor = .black
+        raceDate.textColor = .white
+        raceDate.backgroundColor = .clear
         raceDate.translatesAutoresizingMaskIntoConstraints = false
         return raceDate
     }()
@@ -57,6 +61,7 @@ final class DashboardSeasonCell: UITableViewCell, ViewCode {
         contentView.layer.cornerRadius = 8
         contentView.layer.borderWidth = 2
         contentView.layer.borderColor = UIColor.red.cgColor
+        backgroundColor = .clear
     }
     
     func setupViewHierarchy() {
@@ -70,9 +75,8 @@ final class DashboardSeasonCell: UITableViewCell, ViewCode {
         
         circuitImage.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         circuitImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        circuitImage.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        circuitImage.heightAnchor.constraint(equalToConstant: 65).isActive = true
         circuitImage.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        circuitImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
         round.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4).isActive = true
         round.leadingAnchor.constraint(equalTo: circuitImage.trailingAnchor, constant: 40).isActive = true
