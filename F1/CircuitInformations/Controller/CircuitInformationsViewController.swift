@@ -22,7 +22,7 @@ final class CircuitInformationsViewController: UIViewController, UITableViewDele
     
     func openUrl(_ url: String) {
         if let url = URL(string: url) {
-            UIApplication.shared.open(url)
+            UIApplication.shared.canOpenURL(url)
         }
     }
     
@@ -43,6 +43,8 @@ final class CircuitInformationsViewController: UIViewController, UITableViewDele
         guard let cell: CircuitInformationCell = tableView.dequeueReusableCell(withIdentifier: "circuitInformationCell", for: indexPath) as? CircuitInformationCell else {
             return UITableViewCell()
         }
+        let circuit = circuitInformations
+        cell.setupCell(title: circuit.raceName, date: circuit.date, time: circuit.time)
         return cell
     }
 }

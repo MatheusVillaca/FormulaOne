@@ -1,25 +1,18 @@
-//
-//  ClassificationResponse.swift
-//  FormulaOne
-//
-//  Created by Matheus Villaça on 31/03/22.
-//
-
 import Foundation
 
 class ClassificationResponse: Codable {
-    let mrData: MRData
+    let mrData: MRDataStanding
 
     enum CodingKeys: String, CodingKey {
         case mrData = "MRData"
     }
 
-    init(mrData: MRData) {
+    init(mrData: MRDataStanding) {
         self.mrData = mrData
     }
 }
 
-class MRData: Codable {
+class MRDataStanding: Codable {
     let xmlns: String
     let series: String
     let url: String

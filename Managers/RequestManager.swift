@@ -1,10 +1,3 @@
-//
-//  RequestManager.swift
-//  Formula1
-//
-//  Created by Matheus Villaça on 25/03/22.
-//
-
 import Foundation
 
 final class RequestManager {

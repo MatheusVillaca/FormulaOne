@@ -1,10 +1,3 @@
-//
-//  DashboardViewController.swift
-//  Formula1
-//
-//  Created by Matheus Villaça on 25/03/22.
-//
-
 import UIKit
 
 final class SeasonViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -13,10 +6,10 @@ final class SeasonViewController: UIViewController, UITableViewDelegate, UITable
     
     var races: [Race] = []
     
-    lazy var dashboardView: SeasonView = .init(delegate: self, dataSource: self)
+    lazy var seasonView: SeasonView = .init(delegate: self, dataSource: self)
     
     override func loadView() {
-        view = dashboardView
+        view = seasonView
         self.title = "Season"
     }
     
@@ -30,14 +23,14 @@ final class SeasonViewController: UIViewController, UITableViewDelegate, UITable
         }
         cell.accessoryType = .disclosureIndicator
         let race: Race = races[indexPath.row]
-        cell.setupDashboardCell(title: race.name, image: race.circuit.imageURL, date: race.date, round: "ROUND \(race.round)")
+        cell.setupDashboardCell(title: race.raceName, image: race.circuit.imageURL, date: race.date, round: "ROUND \(race.round)")
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCircuit: Race = races[indexPath.row]
         let circuitInformations: CircuitInformationsViewController = .init(selectedCircuit)
-        navigationController?.pushViewController(circuitInformations, animated: true)
+        self.navigationController?.pushViewController(circuitInformations, animated: true)
     }
     
     init(api: F1API = F1API()) {
@@ -54,10 +47,10 @@ final class SeasonViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        api.getRaces { seasonResponse in
+        api.getRaces { season in
             DispatchQueue.main.async {
-                self.races = seasonResponse?.seasonData.raceTable.races ?? []
-                self.dashboardView.seasonTableView.reloadData()
+                self.races = season?.mrData.raceTable.races ?? []
+                self.seasonView.seasonTableView.reloadData()
             }
         }
     }

@@ -34,7 +34,6 @@
 		E28BE84B27EE558E00F72F28 /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BE84A27EE558E00F72F28 /* Race.swift */; };
 		E28BE85127EE5F8800F72F28 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BE85027EE5F8800F72F28 /* RequestManager.swift */; };
 		E28BE85427EE5FE800F72F28 /* F1API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BE85327EE5FE800F72F28 /* F1API.swift */; };
-		E28BE85627EE645500F72F28 /* SeasonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BE85527EE645500F72F28 /* SeasonResponse.swift */; };
 		E2AB0884282E9DCE00838A3C /* Constructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AB0883282E9DCE00838A3C /* Constructor.swift */; };
 		E2AB0887282ED64000838A3C /* ClassificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AB0886282ED64000838A3C /* ClassificationViewController.swift */; };
 		E2AB088B282EDFE800838A3C /* StandingsNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AB088A282EDFE800838A3C /* StandingsNavigationView.swift */; };
@@ -97,7 +96,6 @@
 		E28BE84A27EE558E00F72F28 /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
 		E28BE85027EE5F8800F72F28 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		E28BE85327EE5FE800F72F28 /* F1API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1API.swift; sourceTree = "<group>"; };
-		E28BE85527EE645500F72F28 /* SeasonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonResponse.swift; sourceTree = "<group>"; };
 		E2AB0883282E9DCE00838A3C /* Constructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constructor.swift; sourceTree = "<group>"; };
 		E2AB0886282ED64000838A3C /* ClassificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationViewController.swift; sourceTree = "<group>"; };
 		E2AB088A282EDFE800838A3C /* StandingsNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsNavigationView.swift; sourceTree = "<group>"; };
@@ -364,7 +362,6 @@
 			isa = PBXGroup;
 			children = (
 				E28BE84A27EE558E00F72F28 /* Race.swift */,
-				E28BE85527EE645500F72F28 /* SeasonResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -676,7 +673,6 @@
 				E227AE7A27F632FD0004BEF2 /* ClassificationCell.swift in Sources */,
 				E25103FD27F511B1009D3908 /* Driver.swift in Sources */,
 				E28BE85127EE5F8800F72F28 /* RequestManager.swift in Sources */,
-				E28BE85627EE645500F72F28 /* SeasonResponse.swift in Sources */,
 				E2BAD8E527B4029600FA90EF /* ViewCode.swift in Sources */,
 				E2E8434327E25654002C20B1 /* LoginViewController.swift in Sources */,
 				E2E8434127E25275002C20B1 /* LoginView.swift in Sources */,

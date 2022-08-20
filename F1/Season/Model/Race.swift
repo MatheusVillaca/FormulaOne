@@ -1,52 +1,123 @@
-//
-//  Race.swift
-//  Formula1
-//
-//  Created by Matheus Villaça on 25/03/22.
-//
-
 import Foundation
 
-final class Race: Codable {
-    
-    var name: String
-    var date: String
-    var round: String
-    let circuit: Circuit
-    
-    private enum CodingKeys: String, CodingKey {
-        case name = "raceName"
-        case circuit = "Circuit"
-        case date, round
+// MARK: - SeasonData
+class SeasonData: Codable {
+    let mrData: MRData
+
+    enum CodingKeys: String, CodingKey {
+        case mrData = "MRData"
     }
-    
-    init(name: String, date: String, circuitImage: String, round: String, circuit: Circuit) {
-        self.name = name
-        self.date = date
-        self.circuit = circuit
-        self.round = round
+
+    init(mrData: MRData) {
+        self.mrData = mrData
     }
 }
 
-class Circuit: Codable {
-    
-    let url: URL
-    let circuitName: String
-    let location: Location
-    let id: ID
+// MARK: - MRData
+class MRData: Codable {
+    let xmlns: String
+    let series: String
+    let url: String
+    let limit, offset, total: String
+    let raceTable: RaceTable
 
     enum CodingKeys: String, CodingKey {
-        case id = "circuitId"
-        case location = "Location"
+        case xmlns, series, url, limit, offset, total
+        case raceTable = "RaceTable"
+    }
+
+    init(xmlns: String, series: String, url: String, limit: String, offset: String, total: String, raceTable: RaceTable) {
+        self.xmlns = xmlns
+        self.series = series
+        self.url = url
+        self.limit = limit
+        self.offset = offset
+        self.total = total
+        self.raceTable = raceTable
+    }
+}
+
+// MARK: - RaceTable
+class RaceTable: Codable {
+    let season: String
+    let races: [Race]
+
+    enum CodingKeys: String, CodingKey {
+        case season
+        case races = "Races"
+    }
+
+    init(season: String, races: [Race]) {
+        self.season = season
+        self.races = races
+    }
+}
+
+// MARK: - Race
+class Race: Codable {
+    let season, round: String
+    let url: String
+    let raceName: String
+    let circuit: Circuit
+    let date, time: String
+    let firstPractice, secondPractice: FirstPractice
+    let thirdPractice: FirstPractice?
+    let qualifying: FirstPractice
+    let sprint: FirstPractice?
+
+    enum CodingKeys: String, CodingKey {
+        case season, round, url, raceName
+        case circuit = "Circuit"
+        case date, time
+        case firstPractice = "FirstPractice"
+        case secondPractice = "SecondPractice"
+        case thirdPractice = "ThirdPractice"
+        case qualifying = "Qualifying"
+        case sprint = "Sprint"
+    }
+
+    init(season: String, round: String, url: String, raceName: String, circuit: Circuit, date: String, time: String, firstPractice: FirstPractice, secondPractice: FirstPractice, thirdPractice: FirstPractice?, qualifying: FirstPractice, sprint: FirstPractice?) {
+        self.season = season
+        self.round = round
+        self.url = url
+        self.raceName = raceName
+        self.circuit = circuit
+        self.date = date
+        self.time = time
+        self.firstPractice = firstPractice
+        self.secondPractice = secondPractice
+        self.thirdPractice = thirdPractice
+        self.qualifying = qualifying
+        self.sprint = sprint
+    }
+}
+
+// MARK: - Circuit
+class Circuit: Codable {
+    let circuitID: ID
+    let url: String
+    let circuitName: String
+    let location: Location
+
+    enum CodingKeys: String, CodingKey {
+        case circuitID = "circuitId"
         case url, circuitName
+        case location = "Location"
+    }
+
+    init(circuitID: ID, url: String, circuitName: String, location: Location) {
+        self.circuitID = circuitID
+        self.url = url
+        self.circuitName = circuitName
+        self.location = location
     }
     
     enum ID: String, Codable {
-        case bahrain, jeddah, albertPark = "albert_park", imola, miami, catalunya, monaco, BAK, villeneuve, silverstone, redBullRing = "red_bull_ring", ricard, hungaroring, spa, zandvoort, monza, marinaBay = "marina_bay", suzuka, americas, rodriguez, interlagos, yasMarina = "yas_marina"
-    }
+            case bahrain, jeddah, albertPark = "albert_park", imola, miami, catalunya, monaco, baku, villeneuve, silverstone, redBullRing = "red_bull_ring", ricard, hungaroring, spa, zandvoort, monza, marinaBay = "marina_bay", suzuka, americas, rodriguez, interlagos, yasMarina = "yas_marina"
+        }
 
     var imageURL: URL? {
-        switch id {
+        switch circuitID {
         case .bahrain:
             return URL(string: "https://f1templo.com/wp-content/uploads/2020/11/Tracado-iluminado-para-as-corridas-noturnas.-680x330.jpg")
         case .jeddah:
@@ -61,14 +132,14 @@ class Circuit: Codable {
             return URL(string: "https://i0.wp.com/www.asphaltandrubber.com/wp-content/uploads/2014/06/Circuit-de-Catalunya-Aerial.jpg?fit=1280%2C914&ssl=1")
         case .monaco:
             return URL(string: "https://ogimg.infoglobo.com.br/in/24315958-a09-8d4/FT1086A/Monaco-Monte-Carlo.jpg")
-        case .BAK:
+        case .baku:
             return URL(string: "https://www.formula1.com/content/dam/fom-website/manual/Misc/ROAD_TO_F1/rsz_1015130123-lat-20180428-_onz8939.jpg")
         case .villeneuve:
             return URL(string: "https://www.autoracing.com.br/wp-content/uploads/2013/06/circuito-gilles-villeneuve.jpg")
         case .silverstone:
             return URL(string: "https://cdn-wp.thesportsrush.com/2020/07/Silverstone-GP.jpg")
         case .redBullRing:
-            return URL(string: "https://cdn-1.motorsport.com/images/amp/0a54RQy0/s1000/f1-austrian-gp-2018-red-bull-r.jpg")
+                return URL(string: "https://cdn-1.motorsport.com/images/amp/0a54RQy0/s1000/f1-austrian-gp-2018-red-bull-r.jpg")
         case .ricard:
             return URL(string: "https://www.autoracing.com.br/wp-content/uploads/2016/12/paul-ricard-franca-vista-aerea700.jpg")
         case .hungaroring:
@@ -95,6 +166,7 @@ class Circuit: Codable {
     }
 }
 
+// MARK: - Location
 class Location: Codable {
     let lat, long, locality, country: String
 
@@ -106,6 +178,7 @@ class Location: Codable {
     }
 }
 
+// MARK: - FirstPractice
 class FirstPractice: Codable {
     let date, time: String
 
@@ -114,4 +187,3 @@ class FirstPractice: Codable {
         self.time = time
     }
 }
-
